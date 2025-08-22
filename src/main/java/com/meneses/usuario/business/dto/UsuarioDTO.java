@@ -3,7 +3,6 @@ package com.meneses.usuario.business.dto;
 import lombok.*;
 
 import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor

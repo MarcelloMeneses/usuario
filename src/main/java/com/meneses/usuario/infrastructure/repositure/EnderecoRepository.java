@@ -1,6 +1,5 @@
 package com.meneses.usuario.infrastructure.repositure;
 
-
 import com.meneses.usuario.infrastructure.entity.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

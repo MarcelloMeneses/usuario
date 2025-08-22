@@ -8,6 +8,7 @@ import com.meneses.usuario.infrastructure.entity.Telefone;
 import com.meneses.usuario.infrastructure.entity.Usuario;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -24,8 +25,12 @@ public class UsuarioConverter {
     }
 
     public List<Endereco> paraListaEndereco(List<EnderecoDTO> enderecoDTOS){
-        return enderecoDTOS.stream().map(this::paraEndereco).toList();
+        List<Endereco> enderecos = new ArrayList<>();
+        for(EnderecoDTO enderecoDTO : enderecoDTOS){
+            enderecos.add(paraEndereco(enderecoDTO));
     }
+    return enderecos;
+}
 
     public Endereco paraEndereco(EnderecoDTO enderecoDTO){
         return Endereco.builder()
@@ -60,8 +65,12 @@ public class UsuarioConverter {
     }
 
     public List<EnderecoDTO> paraListaEnderecoDTO(List<Endereco> enderecoDTOS){
-        return enderecoDTOS.stream().map(this::paraEnderecoDTO).toList();
-    }
+            List<EnderecoDTO> enderecos = new ArrayList<>();
+            for(Endereco enderecoDTO : enderecoDTOS){
+            enderecos.add(paraEnderecoDTO(enderecoDTO));
+        }
+        return enderecos;
+    };
 
     public EnderecoDTO paraEnderecoDTO(Endereco enderecoDTO){
         return EnderecoDTO.builder()
